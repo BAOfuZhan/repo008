@@ -63,10 +63,10 @@
         ],
 
         "_comment_mode": "精准提交策略：A = 目标时间前 pre_fetch_token_ms 毫秒预取 token；B = 目标时间后 first_submit_offset_ms 毫秒取 token 并立即提交。",
-        "mode": "A",
+        "mode": "B",
 
         "_comment_submit_mode": "提交模式：serial = 串行重试（每枪等 HTTP 响应后再决定是否继续）；burst = 定时连发（按 burst_offsets_ms 时间表多线程同时发射，互不等待结果）。",
-        "submit_mode": "burst",
+        "submit_mode": "serial",
 
         "_comment_login_lead_seconds": "在目标时间前多少秒开始登录 + session 预热。",
         "login_lead_seconds": 14,
@@ -81,8 +81,8 @@
         "first_submit_offset_ms": 9,
 
         "_comment_retry": "[仅 serial] 第 2、3 枪在上一枪失败后等待的毫秒数。",
-        "target_offset2_ms": 150,
-        "target_offset3_ms": 160,
+        "target_offset2_ms": 24,
+        "target_offset3_ms": 140,
 
         "_comment_burst_offsets_ms": "[仅 burst] 各枪相对目标时间 T 的发射时刻（毫秒列表）。",
         "burst_offsets_ms": [221, 475, 670]
